@@ -35,13 +35,17 @@ public class MergeList {
 			ls2.next =  new ListNode();
 			ls2 = ls2.next;
 		}
-		while (ls!=null && ls.next != null) {
-			ls2.next = ls.next;
+		if (ls!=null) {
 			ls2.val = ls.val;
+			if (ls.next != null) {
+				ls2.next = ls.next;
+			}
 			
 		}
-		while (ls1!=null && ls1.next != null) {
-			ls2.next = ls1.next;
+		if (ls1!=null) {
+			if (ls1.next != null) {
+				ls2.next = ls1.next;
+			}
 			ls2.val = ls1.val;
 		}
 		return ls3;
