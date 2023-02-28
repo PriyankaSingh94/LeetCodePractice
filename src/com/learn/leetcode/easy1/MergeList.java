@@ -7,7 +7,7 @@ public class MergeList {
 		ListNode list1 = new ListNode(1, new ListNode(2, new ListNode(4)));
 		ListNode list2 = new ListNode(1, new ListNode(3, new ListNode(4)));
 
-		mergeTwoLists(list1, list2);
+		mergeTwoLists1(list1, list2);
 	}
 
 	public static ListNode mergeTwoLists(ListNode ls, ListNode ls1) {
@@ -49,6 +49,42 @@ public class MergeList {
 			ls2.val = ls1.val;
 		}
 		return ls3;
+
+	}
+	
+	
+	public static ListNode mergeTwoLists1(ListNode ls, ListNode ls1) {
+
+		if(ls == null)
+        {
+			return ls1;
+		}
+		
+		if(ls1 == null)
+        {
+			return ls;
+		}
+		ListNode ls3 = new ListNode(0);
+        ListNode ls2 = ls3;
+		while (ls != null && ls1 != null) {
+			if (ls.val < ls1.val) {
+				ls2.next = ls;
+				ls = ls.next;
+			} else {
+				ls2.next = ls1;
+				ls1 = ls1.next;
+			}
+		
+			ls2 = ls2.next;
+		}
+		if (ls!=null) {
+			ls2.next = ls;
+			
+		}
+		if (ls1!=null) {
+			ls2.next = ls1;
+		}
+		return ls3.next;
 
 	}
 }
